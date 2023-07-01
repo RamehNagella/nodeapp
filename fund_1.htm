@@ -1,0 +1,566 @@
+    /*
+      let js = 'Amazing';
+      if(js= 'Amazing');
+
+      console.log(63+1+3);
+
+      let firstName = 'Jonas';
+      console.log(firstName);//prints the value of the variable//
+      console.log('firstName');//prints firstName not a value because we added quotes it treated as a string 
+      console.log("firstName");//string
+      console.log(typeof "firstName");// string
+      console.log(typeof 'firstName');//string
+      console.log(typeof firstName);// returns the value of firstName
+      /*let 3years =2;  -> Uncaught SyntaxError: Invalid or unexpected token 
+      console.log(3years); 
+
+      let jonas&mark ='JM';  ->Uncaught SyntaxError: Unexpected token '&'
+      console.log(jonas&mark);
+      let jonas_mark = 'JM'; //--> no error which means JS allows only $ and  
+      let jonas$mark = 'JM'; //     and _(underscore)symbol  in declaring the variable 
+      console.log(jonas_mark, jonas$mark);
+      
+      let new = 23;  //Uncaught SyntaxError: Unexpected token 'new'
+
+      console.log(new);// because new is predefined variable in JS so it cannnot be written as value of variable
+
+      let function ="Jonas";//Uncaught SyntaxError: Unexpected token 'function'
+      consol.log(function);
+
+      //but they can be named as value of variable by adding $ and _ symbols
+
+      let _function = "Jonas";
+      console.log(_function);
+      
+      let $new = 36;
+      console.log($new);
+
+      let Person = 'Jonas"; //Uncaught SyntaxError: Invalid or unexpected token
+      console.log(Person); //because one '(single quortes) and other side "(double quotes)
+        
+
+      let Person = "Jonas";
+      console.log(Person);  
+      let Person = 'Jonas';
+      console.log(Person);
+      let Person = Jonas;  //Uncaught ReferenceError: Jonas is not defined
+      console.log(Person); // because string must written in quotes
+      
+      let person = 'jonas';
+      console.log(person);
+      let person = "3.1415";
+      console.log(person);  // this time person is string since number is written in quotes
+      console.log(typeof person); 
+
+      let person = 3.1415;  // this time person in number, since we removed quotes
+      console.log(person);
+      console.log(typeof person); 
+
+      let person = 3.1415; 
+      console.log(typeof person);//number
+      console.log(person);  // 3.1415  i.e JS excutes code inorder like first line to last line 
+        
+
+      let javaSriptIsFun = "Yes";
+      javaScriptIsFun = 'YA Ya!';
+
+      console.log(javaSriptIsFun);
+      console.log(typeof javaSriptIsFun);
+      
+      let year;
+      console.log(year); // here console is undefined
+      console.log(typeof year);//undefined 
+
+      let year;
+      year = 2019;  //redefineing the variable value for undefined variable
+      console.log(year); //  here console is 2019
+      console.log(typeof year);//            number
+
+      console.log(typeof null);// console is object it is undefined its value is also undefined
+        
+    
+    // LET, CONST,VAR //
+    let age = 30;
+    console.log(age);
+    let year = 1990;
+    year = 1991; // redefining the variable value
+    console.log(year);// 1991
+
+    const month = 12;
+    console.log(month);
+    const week = 7;
+    week = 12; //Uncaught TypeError: Assignment to constant variable.
+     console.log(week)// we cant change the value of const varible its only read-only variable
+
+     var myName = 'Jonas';
+     myName = 'Mark';
+     console.log(myName);// console is:Mark
+
+     //we can redefine the value of let and var varibles but cant change the value of const varible
+    
+    // ARITHEMATIC OPERATORS//
+    const ageJonas = 2037-1991;
+    console.log(ageJonas);
+
+    const ageSarah = 2037-2018;
+    console.log(ageSarah, ageJonas);
+    
+    const now = 2037;
+    const ageSarah = now - 2018;
+    console.log(ageSarah)
+
+    const firstName = "Jonas";
+    const lastName = 'Bob';
+    
+    console.log(firstName + lastName);// JonasBob
+    console.log(firstName +   lastName);// JonasBob
+    console.log(firstName + ' ' + lastName);// Jonas Bob  
+    
+    //ASSIGNMENT OPERATORS/
+    
+    let y = 10+5;
+    console.log(y);// 15
+
+    y += 10;  // 15+10=25
+    console.log(y);
+
+    y *=10; //25*10
+    console.log(y);//250
+
+    y /=100;    //250/100
+    console.log(y)// 2.5
+
+    y++; // y= y+1=2.5+1
+    console.log(y);//3.5
+
+    let p =10
+    p =+10;// no change will occure
+    console.log(p);//10
+
+    q =+10;
+    console.log(q);//10
+
+  //  r =*10;//Uncaught SyntaxError: Unexpected token '*'
+   // console.log(r);
+
+    s =/10; //Uncaught SyntaxError: Invalid regular expression: missing /
+    console.log(s);
+    //which means after = operator whatever we will put it doesnt change the value but
+    //if you put any operatorafter = operator we can get change in the result according to operatoe
+    
+    const ageJonas = 47;
+    const ageSarah = 19;
+    const now = 2037;
+    console.log(ageJonas > ageSarah);// true
+    console.log(ageSarah > 18);//true
+    const isFullAge = ageSarah >= 18;// here we are checking condition not assigning
+    console.log(isFullAge);//true    // which means after = OPEARATOR also we can do opearations 
+
+    console.log(now-1991 > now-2018); // true
+
+    let y,z;
+    y=z=25-10-5;
+    console.log(y,z);
+
+   // const avgAge = ageSarah+ageJonas/2;// this is false indication of avg
+    //console.log(avgAge);//19+47/2 =19+23.5 =42.5
+
+
+    const avgAge = (ageSarah+ageJonas)/2;// use brackets in the formulas to get accurate values
+    console.log(avgAge);//(19+47)/2 =66/2 =33 ans;
+    
+  
+//CODING CHALLENGE#1//
+ 
+  const massMark = 78;
+  const massJohn = 92;
+  const heightMark = 1.69;
+  const heightJohn = 1.95;
+
+  const marksBMI = massMark/(heightMark*heightMark);
+  const johnsBMI = massJohn/(heightJohn**2);
+
+  console.log(marksBMI, johnsBMI);
+
+  console.log(marksBMI > johnsBMI);
+
+  const massMark = 70;
+  const massJohn = 85;
+  const heightMark = 1.88;
+  const heightJohn = 1.96;
+
+  const marksBMI = massMark/(heightMark*heightMark);
+  const johnsBMI = massJohn/(heightJohn**2);
+
+  const marksHigherBMI = marksBMI > johnsBMI;
+
+  console.log(marksBMI,johnsBMI);
+
+  console.log(marksHigherBMI);
+  
+  let wtOfMark = 78;
+  let wtOfJohn = 92;
+  let htOfMark = 1.69;
+  let htOfJohn = 1.76; 
+
+  let mass1 = 78;
+  let mass2 = 92;
+  let height1 = 1.69;
+  let height2 = 1.76;
+
+  const BMIOfMark = mass1/(height1**2);
+  const BMIOfJohn = mass2/(height2**2);
+  console.log(BMIOfMark, BMIOfJohn);
+
+  let markHigherBMI = BMIOfMark > BMIOfJohn;
+
+  console.log(markHigherBMI);
+
+// String and Template literals//
+ const firstName ='Jonas';
+ const job = 'teacher';
+ const birthYear = 1995;
+ const year = 2037;
+
+ const printName ="I'm + firstName, a + (year - birhtYear) +years old+ job" ;
+ console.log(printName);
+
+ const jonasNew =`I'm ${firstName} a ${year - birthYear} years old ${job}.`;
+ console.log(jonasNew);
+
+ console.log(`just a regular string`);
+ console.log(`string with\nmultiple\nlines`);
+ console.log(`string has
+              multiple
+              lines`);
+              
+  //IF and ELSE IF statement//
+
+const age = 19;
+const isOldEnough = age >= 18;
+
+if(isOldEnough){
+  console.log('Sarah can start Driving licence');
+}
+const age = 15;
+const isOldEnough = age >= 18;
+
+if(isOldEnough){
+  console.log('Sarah can start Driving licence');
+}else{
+const yearsLeft = 18 - age;
+console.log(`Sarah is too young wait another ${yearsLeft} years`);
+
+}
+
+const birthYear = 1998;
+let century;
+
+if(birthYear <= 2000){
+  century = 20;
+}else{
+  century = 21;
+}
+console.log(century)
+//CODING CHALLENGE #2
+
+  const massMark = 78;
+  const massJohn = 92;
+  const heightMark = 1.69;
+  const heightJohn = 1.95;
+
+  const marksBMI = massMark/(heightMark*heightMark);
+  const johnsBMI = massJohn/(heightJohn**2);
+
+  console.log(marksBMI, johnsBMI);
+
+  if(marksBMI > johnsBMI){
+    console.log(`marks BMI(${marksBMI}) is more than Johns BMI(${johnsBMI})`)
+  }else {
+    console.log(`Johns BMI(${johnsBMI} is more than marks BMI (${marksBMI}`)
+  }
+
+  const mass_Mark = 92;
+  const mass_John = 82;
+  const height_Mark = 1.69;
+  const height_John = 1.55;
+
+  const marks_BMI = mass_Mark/(height_Mark*height_Mark);
+  const johns_BMI = mass_John/(height_John**2);
+  
+  console.log(marks_BMI, johns_BMI);
+
+  if(marks_BMI > johns_BMI){
+    console.log(`marks BMI(${marks_BMI}) is more than Johns BMI(${johns_BMI})`)
+  }else {
+    console.log(`Johns BMI(${johns_BMI} is more than marks BMI (${marks_BMI}`)
+  }
+  
+//Type conversion and corcion
+// Type conversion
+ const inputYear ='1991';
+ console.log(inputYear + 10); //19910 because iput year is
+ console.log(typeof inputYear)// string beacuse 1991 is quoted with single quotes
+ console.log('inputYear' +10); //inpiutYear10 because we quoted inputYear in single or double quotes its treated as 
+ console.log(typeof 'inputYear');// string
+ 
+ console.log("inputYear" + 10);// inputYear10
+ console.log(inputYear - 10); // 1981
+
+ const outputYear = 1991;
+ console.log(outputYear +10);// 2001
+ console.log(typeof outputYear); //Number since 1991 witten without single or double quotes
+ 
+ console.log('outputYear' + 10);//outputYear
+ console.log(typeof 'outputYear');//string quotes added
+ console.log("outputYear" + 10); // outputYear10  since quotes added
+ console.log(typeof "outputYear");// string
+
+ // to conver numbered string('1991') into number use Number Function
+
+ 
+ console.log(Number(inputYear), inputYear);// 1991, '1991'
+ console.log(Number(inputYear) + 10);//2001
+ console.log(typeof Number(inputYear));// number
+
+ console.log(Number('Jonas'));// NaN 
+ console.log(typeof NaN); // number but doesnt have valid value
+
+ console.log(String(23));
+ console.log(String(23),23);//23 23
+ console.log(typeof String(23));// string
+ console.log(String(23) + 5);//235
+ console.log(String(23) - 5);//18 for subtraction it works but addition it will be treated as a string
+ console.log(String(23)+10, 23+10);//2310 33
+ console.log('I am' + 23 + 'years old');
+ console.log('I am' + ' ' + 23 + ' ' +'years' + " " + "old");
+ console.log(`I am 23 years old`);
+ console.log('I am 23 years old');
+
+console.log('23' + '10' + 3);//23103
+console.log(`23` +`10` - 3);//2307
+console.log(`23 + 10 -3`);//23 + 10 -3
+console.log('23 + 10 - 3');//23 +10 - 3
+console.log(23 + 10 +3);//36
+console.log(`23` - `10` - `3`);//10
+
+console.log(23+2);//25
+console.log(23-2);//21
+console.log(23*2);//46
+console.log(23/2);//11.5
+
+console.log('23' + '2');//232
+console.log('23' - '2');//21
+console.log('23'*'2');//46
+console.log('23'/'2');//11.5
+
+console.log(`23 + 2`);//23 + 2
+console.log(`23 - 2`);//23 - 2
+
+let n = '1'+1;//11
+    n = n - 1;//11-1
+console.log(n);//10
+var m = '2'- 1 +'0'+ '0' -1 +10+1;//100-1+11=110
+   m = m - 10+ "0";//110-10+"0"=100+"0"
+console.log(m);//1000
+
+ //console.log(stirng(23));//Uncaught ReferenceError: stirng is not defined S should be capital letter
+
+//TRUTHY and FALSY values//
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean('Jonas'));
+console.log(Boolean({}));
+console.log(Boolean(' '));
+
+const money = 0;
+if(money){
+  console.log("Don't spend it all");
+}else{
+  console.log("You should get a job!");
+}
+
+
+let height = 1;
+if(height){
+  console.log('YAY! height is defined');
+}else{
+  console.log('Height is undefined');
+}
+//Type corcion is always done by JS in two times when 
+// Using logical operators ang using logical content
+
+//EQUALITY OPERATOR
+
+const age = 18;
+console.log(age);//18
+console.log(typeof age);//number
+
+if(age == 18) console.log("loose"); //18=18
+if(age === 18) console.log("strict");//18=18
+
+const year = '2022';
+console.log(year);//403
+console.log(typeof year);//string
+
+if(year === 2022){    // must be equal to strictly // here string is not equal to number2022
+ console.log('strict');// so this will not print
+}else{
+  console.log('not equal'); 
+}
+// console is not equal
+
+if(year == 2022) {
+  console.log('loose'); // here it is not mandatory to strictly equal
+}else{                      
+  console.log('not equal');
+}
+
+const favorite = prompt("whats your favorite number: ");
+console.log(favorite);
+console.log(typeof favorite);// string
+   
+if (favorite == 23){
+  console.log('cool! 23 is a amzing number');
+} else{
+  console.log('number is not equal to 23');
+}
+if(favorite === 23){
+  console.log('both equal to same family');
+}else{
+  console.log('they are different from each other');
+}
+const favorite = prompt('what is your favorite number');
+console.log(Number(favorite));
+console.log(typeof favorite);
+if(favorite === 23){
+  console.log('23 is amazing number');
+}else if(favorite === 7){
+  console.log('7 is also amazing number');
+}else if (favorite === 9){
+  console.log('9 is a number');
+}else{
+  console.log('numbers are not 23,7 and 9');
+}if(favorite !== 23)console.log('why not 23!')
+
+const hasDriversLicence = true;
+const hasGoodVision = true;
+const isTired = false;
+console.log(hasDriversLicence && hasGoodVision && !isTired);
+console.log(hasDriversLicence || hasGoodVision);
+console.log(!hasDriversLicence);
+console.log(!isTired);
+
+if(hasDriversLicence && hasGoodVision && !isTired) console.log(`Sarah is able to drive`);
+else console.log(`Someone else should drive`); 
+
+// CODING challenge #3
+
+let score1 = 91;
+let score2 = 110;
+let score3 = 110;
+
+let scoreK_1 = 110;
+let scoreK_2 = 91;
+let scoreK_3 = 110;
+
+const avgDolphin = (score1+score2+score3)/3;
+const avgKolas = (scoreK_1 + scoreK_2 + scoreK_3)/3;
+
+console.log(avgDolphin, avgKolas);
+if(avgDolphin > avgKolas){
+  console.log('Dolphins has higher score than Kolas');
+}else if(avgKolas > avgDolphin){
+  console.log(`Kolas has higher score than Dolphins`);
+}else console.log(`Both have equal score(${avgDolphin})`);
+
+
+//another way 
+const dolphinScore = (97+109+130)/3;
+const kolasScore =(109+97+130)/3;
+
+console.log(dolphinScore, kolasScore);
+if(dolphinScore > kolasScore)console.log(`Dolphins has higher score(${dolphinScore}) than Kolas`);
+else if(dolphinScore < kolasScore)console.log(`Kolas has higher score(${kolasScore}) than Dolphins`);
+else console.log(`Both have equal score i.e ${dolphinScore}`);
+
+if(dolphinScore>kolasScore && dolphinScore>=100){
+  console.log(`Dolphins will win the Trophy`);
+}else if(dolphinScore<kolasScore && kolasScore>=100){
+ console.log(`Kolas will win the Trophy`);
+
+}else if(dolphinScore === kolasScore && kolasScore>=100 && dolphinScore>=100){
+  console.log(`Both teams have equal score(${kolasScore}. Both teams will share the trophy`);
+}else{
+ console.log(`Both teams have score less than 100. Hence no one win the trophy`);
+} 
+
+
+// switch statment
+const day = "Sunday";
+
+switch(day){
+case 'Monday':
+  console.log(`plan course structure`);
+  console.log(`Go to coding meetup`);
+  break;
+
+case 'Tuesday':
+  console.log(`Prepare theory vedios`);
+  break;
+case 'Wednesday':
+case 'Thursday':
+  console.log(`Write code examples`);
+  break;
+case 'Friday':
+  console.log(`Record vedios`);
+  break;
+case 'Saturday':
+case 'Sunday':
+  console.log(`Enjoy the weekend`);
+  break;
+default:
+  console.log('Not a valid day');
+} 
+
+
+// THE CONDITIONAL or TERNIRARY OPERATOR//
+
+const age = prompt(`Enter your age: `);
+//if (age >= 23){
+ // console.log(`I like to drink wine`);
+//}
+
+age >= 18?console.log(`I like to drink wine`):
+  console.log(`I like to drink water`);
+  const drink = age >=18 ? 'wine' : 'water';
+  console.log(drink);
+
+  console.log(`I like to drink ${age>=18 ? 'wine' : 'water'}`);
+  //console.log(`${age <= 0 ? 'invalid input': ' '} `);
+  
+
+//CODING CHALLENGE
+
+const billValue = 433 ;
+
+if(billValue >= 50 && billValue <=300){
+  
+
+  const tipValue = (billValue/100)*15;
+  console.log(tipValue);
+  console.log(`The bill was ${billValue}, the tip was ${tipValue} and the total value is ${billValue + tipValue}`);
+
+}else {
+
+  const tipValue =(billValue/100)*20;
+  console.log(tipValue);
+  console.log(`The bill was ${billValue}, the tip was ${tipValue} and the total value is ${billValue + tipValue}`);
+
+
+}
+
+const bill=433;
+
+console.log(`The bill is ${bill}, the tip is ${ tip = bill>50 && bill<= 300 ? bill*0.15 : bill*0.20} and the total value is ${bill + tip}`);
+*/
