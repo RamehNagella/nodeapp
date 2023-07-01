@@ -580,3 +580,4 @@ console.log(jonas.species, matilda.species); //Homo Sapiens Homo Sapiens
 
 console.log(jonas.hasOwnProperty("firstName")); //true
 console.log(jonas.hasOwnProperty("species")); //false
+//
