@@ -1030,3 +1030,355 @@ console.log(Car);
 // console.log(Tesla instanceof Car);
 // Tesla.accelerate();
 */
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+  calcAge() {
+    console.log(2037 - this.birthYear); //-->>this method is added to the prototype of PersonCl as before not porperty of personcl
+  }
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+  get age() {
+    return 2037 - this.birthYear;
+  }
+  //set property that already exist
+
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(" ")) this._fullName = name;
+    else alert(`${name} is not a full name`);
+  }
+  get fullName() {
+    return this._fullName;
+  }
+  static hey() {
+    console.log("Hey there");
+  }
+}
+
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    // PersonCl.call(this,firstName,birthYear)  //-->>No need to call like this use super
+    //Always need to hapeen FIRST
+    super(fullName, birthYear);
+    this.course = course;
+  }
+  introduce() {
+    console.log(
+      `My name is ${(this, this.fullName)} and I study ${this.course}`
+    );
+  }
+  calcAge() {
+    console.log(
+      `I'm ${
+        2037 - this.birthYear
+      } years old,but as a student I fell more like ${
+        2037 - this.birthYear + 10
+      } `
+    );
+  }
+}
+
+// const martha = new StudentCl("Marth Jonas", 2012);
+//this is demonstrate you just that if you dont neeed any new Properties then you dont need to bother writing constructtor method in the child class
+const martha = new StudentCl("Marth Jonas", 2012, "Computer Science");
+console.log(martha);
+martha.introduce();
+martha.calcAge();
+//obesrve prototype of martha it is created as last preious class just because of extends keyword
+//now overwrite the one of the methods parentcl >> for this just write method in studentCl
+
+// Now use Object.create in order to implement complex prototype chain
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+const steven = Object.create(PersonProto);
+const StudentProto = Object.create(PersonProto);
+
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+StudentProto.introduce = function () {
+  console.log(`My name is ${(this, this.fullName)} and I study ${this.course}`);
+};
+const jay = Object.create(StudentProto);
+jay.init("Jay", 2010, "Computer Science");
+console.log(jay);
+jay.introduce();
+jay.calcAge();
+
+//this is best to work for faking classes
+//here simply linking objects to other objects
+
+//
+/*
+class Account {
+  // constructor(owner, currncy, pin, movements) {
+  constructor(owner, currncy, pin) {
+    this.owner = owner;
+    this.currncy = currncy;
+    this.pin = pin;
+    this.movements = [];
+    this.locale = navigator.language;
+    console.log(`Thanks for opening as account,${owner}`);
+  }
+  //public interface
+  deposite(val) {
+    this.movements.push(val);
+  }
+  withdrawl(val) {
+    this.deposite(-val);
+  }
+  approveLoan(val) {
+    return true;
+  }
+  requestLoan(val) {
+    if (this.approveLoan) {
+      this.deposite(val);
+      console.log("Loan approved");
+    }
+  }
+}
+const acc1 = new Account("Jonas", "EUR", 1111, []);
+// acc1.movements.push(230);
+// acc1.movements.push(250);
+acc1.deposite(250);
+acc1.withdrawl(120);
+acc1.requestLoan(29);
+acc1.approveLoan(1000);
+
+console.log(acc1);
+console.log(acc1.pin);
+*/
+//ENCAPSULATIO and DATA PRIVACY
+/*
+class Account {
+  // constructor(owner, currncy, pin, movements) {
+  constructor(owner, currncy, pin) {
+    this.owner = owner;
+    this.currncy = currncy;
+    //protteced property
+    this._pin = pin;
+
+    this._movements = [];
+    this.locale = navigator.language;
+    console.log(`Thanks for opening as account,${owner}`);
+  }
+  //public interface
+  getMovements() {
+    return this._movements;
+  }
+  deposite(val) {
+    this._movements.push(val);
+  }
+  withdrawl(val) {
+    this.deposite(-val);
+  }
+  _approveLoan(val) {
+    return true;
+  }
+  requestLoan(val) {
+    if (this._approveLoan) {
+      this.deposite(val);
+      console.log("Loan approved");
+    }
+  }
+}
+const acc1 = new Account("Jonas", "EUR", 1111, []);
+// acc1._movements.push(230);
+// acc1._movements.push(250);
+acc1.deposite(250);
+acc1.withdrawl(120);
+acc1.requestLoan(29);
+acc1.approveLoan(1000);
+console.log(acc1.getMovements());
+
+console.log(acc1);
+console.log(acc1.pin);
+*/
+//implemnt truely private classes
+// there are four types of fields
+// Public fields
+// Private fields
+// Public Methods
+// private methods
+// (there is also static version)
+/*
+class Account {
+  //public fields(-->>these fieds are present on all the instances not present in the prototype )
+  // locale = navigator.language;
+  // _movements = [];
+
+  //Private Fieds(instances)
+  #movements = [];
+  #pin;
+
+  constructor(owner, currncy, pin) {
+    this.owner = owner;
+    this.currncy = currncy;
+    //protteced property
+    // this._pin = pin;
+    this.#pin = pin;
+
+    // this._movements = [];
+    this.locale = navigator.language;
+    console.log(`Thanks for opening as account,${owner}`);
+  }
+  // Public Methods
+
+  //public interface
+  getMovements() {
+    return this.#movements;
+  }
+  deposite(val) {
+    this.#movements.push(val);
+    return this;
+  }
+  withdrawl(val) {
+    this.deposite(-val);
+    return this;
+  }
+
+  requestLoan(val) {
+    if (this._approveLoan) {
+      this.deposite(val);
+      console.log("Loan approved");
+      return this;
+    }
+  }
+  // Private methods
+  // #approveLoan(val) {
+  _approveLoan(val) {
+    return true;
+  }
+  // static instances -->>these static methods will not be availble on all instances but only on class itself
+  static helper() {
+    console.log("Helper");
+  }
+}
+const acc1 = new Account("Jonas", "EUR", 1111, []);
+// acc1._movements.push(230);
+// acc1._movements.push(250);
+acc1.deposite(250);
+acc1.withdrawl(120);
+acc1.requestLoan(29);
+acc1._approveLoan(100);
+console.log(acc1.getMovements());
+
+console.log(acc1);
+console.log(acc1.pin); //undefined
+// console.log(acc1.#movements);//Uncaught SyntaxError: Private field
+// console.log(acc1.#pin);//Uncaught SyntaxError: Private field
+// console.log(acc1.#approveLoan(100)); //Uncaught SyntaxError: Private field
+
+Account.helper();
+
+//CHANING METHODS
+acc1.deposite(300).deposite(220).withdrawl(32).requestLoan(2400).withdrawl(400);
+console.log(acc1.getMovements());
+console.log(Account);
+*/
+//ARRAYS REDUCE METHODS
+
+const movements = [
+  [2, 34, 5, 6, -4, -2, 20, -2],
+  [3, 2, -3, 4, 6, -7, 34],
+];
+const numberOfDeposites = movements.flat().filter((mov) => mov > 0).length;
+console.log(numberOfDeposites);
+console.log(movements.flat().length);
+
+//advnce use case of REDUCE
+const numDeposites3 = movements
+  .flat()
+  .reduce((count, cur) => (cur > 3 ? count + 1 : count), 0);
+console.log(numDeposites3);
+
+// const numdepsitesAbove3 = movements
+//   .flat()
+//   .reduce((count, cur) => (cur > 3 ? count++ : count), 0);         //post increament
+// console.log(numdepsitesAbove3);//0
+const numdepsitesAbove3 = movements
+  .flat()
+  .reduce((count, cur) => (cur > 3 ? ++count : count), 0); //pre increment
+
+console.log(numdepsitesAbove3); //7
+
+//reduce method can also return new array and objects
+
+const sums = movements.flat();
+console.log(sums);
+const { deposites, withdrawls } = movements.flat().reduce(
+  (sums, cur) => {
+    cur > 0 ? (sums.deposites += cur) : (sums.withdrawls += cur);
+    return sums;
+  },
+
+  { deposites: 0, withdrawls: 0 }
+);
+console.log(deposites, withdrawls); //116 -18
+
+const { Withdrawls, Deposites } = movements.flat().reduce(
+  (sums, cur) => {
+    sums[cur > 0 ? "Deposites" : "Withdrawls"] += cur;
+    return sums;
+  },
+  { Withdrawls: 0, Deposites: 0 }
+);
+console.log(Deposites, Withdrawls);
+
+const convertTitleCase = function (title) {
+  const exceptions = [
+    "a",
+    "an",
+    "the",
+    "on",
+    "in",
+    "is",
+    "but",
+    "are",
+    "then",
+    "they",
+    "with",
+    "them",
+  ];
+  const capitalCase = title
+    .toLowerCase()
+    .split(" ")
+    .map((word) =>
+      exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join(" ");
+  console.log(capitalCase);
+};
+convertTitleCase("This is a nice title");
+const word = "ramesh";
+console.log(word[0]);
+console.log(word[0] + word.slice(1));
+//creating dates
+const now = new Date();
+console.log(now);
+console.log(new Date(2023, 7, 3));
+console.log(new Date(2037, 9, 11));
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(+future);
+const calcDays = (date1, date2) =>
+  Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+
+const days = calcDays(new Date(2037, 3, 14), new Date(2037, 3, 24));
+console.log(days);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDay());
+console.log(future.getHours());
