@@ -879,6 +879,7 @@ console.log(">>>", ford.speedUs);
 ford.speedUs = 50;
 console.log(ford);
 */
+
 //Inheritance between classes
 const Person = function (firstName, birthYear) {
   this.firstName = firstName;
@@ -1030,6 +1031,7 @@ console.log(Car);
 // console.log(Tesla instanceof Car);
 // Tesla.accelerate();
 */
+/*
 class PersonCl {
   constructor(fullName, birthYear) {
     this.fullName = fullName;
@@ -1119,7 +1121,7 @@ jay.calcAge();
 
 //this is best to work for faking classes
 //here simply linking objects to other objects
-
+*/
 //
 /*
 class Account {
@@ -1288,6 +1290,7 @@ acc1.deposite(300).deposite(220).withdrawl(32).requestLoan(2400).withdrawl(400);
 console.log(acc1.getMovements());
 console.log(Account);
 */
+/*
 //ARRAYS REDUCE METHODS
 
 const movements = [
@@ -1382,3 +1385,4 @@ console.log(future.getFullYear());
 console.log(future.getMonth());
 console.log(future.getDay());
 console.log(future.getHours());
+*/
